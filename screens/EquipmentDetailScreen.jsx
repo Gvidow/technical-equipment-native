@@ -1,6 +1,5 @@
 import { ScrollView, StyleSheet, View, TextInput, TouchableOpacity, Text } from 'react-native';
 import React, { useEffect, useState } from 'react';
-
 import { useRoute } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { axiosInstance } from '../api';

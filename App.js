@@ -1,27 +1,3 @@
-// import { NavigationContainer } from '@react-navigation/native';
-// import { createNativeStackNavigator } from '@react-navigation/native-stack';
-// import ShopScreen from './screens/EquipmentsScreen';
-// import DeviceScreen from './screens/EquipmentDetailScreen';
-
-// import { store } from './store';
-// import { Provider } from 'react-redux';
-
-// const Stack = createNativeStackNavigator();
-// console.log(12)
-
-// export default function App() {
-//     return (
-//       <Provider store={store}>
-//         <NavigationContainer>
-//             <Stack.Navigator>
-//                 <Stack.Screen name='Shop' component={ShopScreen} />
-//                 <Stack.Screen name='Device' component={DeviceScreen} />
-//             </Stack.Navigator>
-//         </NavigationContainer>
-//       </Provider>
-//     );
-// }
-
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import EquipmentsScreen from './screens/EquipmentsScreen';

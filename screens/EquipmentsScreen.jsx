@@ -1,46 +1,3 @@
-// import { View, Text, Button } from 'react-native';
-// import { useDispatch, useSelector } from 'react-redux';
-// import React, { useEffect } from 'react';
-// import { axiosInstance } from '../api';
-// import { setDevices } from '../store/equipmentSlice';
-// import DeviceCard from '../components/EquipmentCard';
-// import { ScrollView, StyleSheet } from 'react-native';
-
-
-// export default function ShopScreen({ navigation }) {
-//     const dispatch = useDispatch();
-//     const { devices } = useSelector((store) => store.device);
-//     console.log('eeeeeeeeeeeeeeeeeeeeee');
-//     useEffect(() => {
-//         async function getAllDevices() {
-//             console.log('fdf');
-//             await axiosInstance.get('/equipment/list').then((response) => {console.log('fdfdsfdsfdsfds');dispatch(setDevices(response?.data.body.equipments))}, error=>{console.log(error)}).catch(error =>{console.log(error)});
-//         }
-//         getAllDevices();
-//     }, [dispatch]);
-
-//     return (
-//         <ScrollView>
-//             <View style={styles.page}>
-//                 {!!devices &&
-//                     devices.map((device) => <DeviceCard key={device.id} {...device} navigation={navigation} />)}
-//             </View>
-//         </ScrollView>
-//     );
-// }
-
-// const styles = StyleSheet.create({
-//     page: {
-//         display: 'flex',
-//         width: '100%',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         backgroundColor: '#2a2a2a',
-//     },
-// });
-
-
-
 import { ScrollView, StyleSheet, View, TextInput, TouchableOpacity, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
@@ -53,8 +10,6 @@ import { useFocusEffect } from '@react-navigation/native';
 export default function EquipmentsScreen({ navigation }) {
     const dispatch = useDispatch();
     const [searchValue, setSearchValue] = useState('');
-    const [searchAfterDate, setSearchAfterDate] = useState(null);
-    // const [searchValueMax, setSearchValueMax] = useState(10000000);
     const { equipments } = useSelector((store) => store.equipment);
   
     const handleSearch = async () => {
@@ -66,7 +21,6 @@ export default function EquipmentsScreen({ navigation }) {
         feed.map(element => {
             element.picture = 'http://192.168.1.103' + element.picture.substring(16);
         });
-        console.log(feed);
         dispatch(setEquipments(feed));
       } catch (error) {
         console.error('Error during search:', error);
@@ -82,7 +36,6 @@ export default function EquipmentsScreen({ navigation }) {
             feed.map(element => {
                 element.picture = 'http://192.168.1.103' + element.picture.substring(16);
             });
-            console.log(feed);
             dispatch(setEquipments(feed));
           } catch (error) {
             console.error('Error fetching equipments:', error);
@@ -90,8 +43,6 @@ export default function EquipmentsScreen({ navigation }) {
         }
         console.log('useeff');
         getEquipments();
-        console.log('777777777777777777')
-        console.log(equipments)
       }, [dispatch]))
   
     return (
