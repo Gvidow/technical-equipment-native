@@ -1,4 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { deviceReducer } from './deviceSlice';
+import { equipmentReducer } from './equipmentSlice';
 
-export const store = configureStore({ reducer: { device: deviceReducer } });
+export const store = configureStore({ reducer: { equipment: equipmentReducer } });
