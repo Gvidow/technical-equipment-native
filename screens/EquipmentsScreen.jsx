@@ -15,7 +15,7 @@ export default function EquipmentsScreen({ navigation }) {
     const handleSearch = async () => {
       try {
         const response = await axiosInstance.get(
-          `/equipment/list?title=${searchValue}`
+          `/equipment/list?equipment=${searchValue}`
         );
         feed = response?.data.body.equipments;
         feed.map(element => {
