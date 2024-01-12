@@ -9,13 +9,13 @@ import { useFocusEffect } from '@react-navigation/native';
 
 export default function EquipmentsScreen({ navigation }) {
     const dispatch = useDispatch();
-    const [searchValue, setSearchValue] = useState('');
+    const [searchEquipment, setSearchEquipment] = useState('');
     const { equipments } = useSelector((store) => store.equipment);
   
-    const handleSearch = async () => {
+    const handleSearchEquipments = async () => {
       try {
         const response = await axiosInstance.get(
-          `/equipment/list?equipment=${searchValue}`
+          `/equipment/list?equipment=${searchEquipment}`
         );
         feed = response?.data.body.equipments;
         feed.map(element => {
@@ -52,10 +52,10 @@ export default function EquipmentsScreen({ navigation }) {
             style={styles.input}
             placeholder="Название оборудования"
             placeholderTextColor="grey"
-            onChangeText={setSearchValue}
-            value={searchValue}
+            onChangeText={setSearchEquipment}
+            value={searchEquipment}
           />
-          <TouchableOpacity style={styles.button} onPress={handleSearch}>
+          <TouchableOpacity style={styles.button} onPress={handleSearchEquipments}>
             <Text style={styles.buttonText}> Найти</Text>
           </TouchableOpacity>
         </View>
